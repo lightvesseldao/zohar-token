@@ -1,0 +1,31 @@
+[package]
+name = "zohar-token"
+version = "0.1.0"
+description = "LightVessel DAO — Zohar Token Program"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "zohar_token"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "0.31.0", features = ["init-if-needed"] }
+anchor-spl = { version = "0.31.0", features = ["token"] }
+
+[dev-dependencies]
+litesvm = "0.6"
+solana-keypair = "2.2"
+solana-signer = "2.2"
+solana-message = "2.2"
+solana-transaction = "2.2"
+# litesvm's runtime pulls solana-secp256r1-program -> openssl; build it from
+# source so the IDL/test compile needs no system libssl or pkg-config.
+openssl = { version = "0.10", features = ["vendored"] }
