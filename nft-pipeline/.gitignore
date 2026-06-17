@@ -1,0 +1,19 @@
+# LightVessel DAO LLC — NFT pipeline
+# Large generated assets and corpora are NOT committed (regenerated locally).
+
+# Tile corpus / mosaic source images
+word_images/
+
+# Large data files
+words.json
+temple_map.json
+ner_map_template.json
+
+# Generated imagery / video
+*.png
+*.mp4
+*.gif
+
+# Secrets & caches
+.env
+__pycache__/

@@ -1,0 +1,59 @@
+{
+  "name": "Zohar Token — Master Edition",
+  "symbol": "ZOHAR",
+  "description": "The Third Temple, built word by word from the complete Aramaic Zohar. Every word of the corpus is present as its own illuminated micro-artwork. Zoom in — the Zohar reveals itself. LightVessel DAO LLC — Master Edition 2026.",
+  "image": "zohar_token_master_final.png",
+  "attributes": [
+    {
+      "trait_type": "Edition",
+      "value": "Master Edition"
+    },
+    {
+      "trait_type": "Year",
+      "value": "2026"
+    },
+    {
+      "trait_type": "Language",
+      "value": "Aramaic"
+    },
+    {
+      "trait_type": "Sections",
+      "value": "51"
+    },
+    {
+      "trait_type": "Words",
+      "value": "849882"
+    },
+    {
+      "trait_type": "Unique Words",
+      "value": "49878"
+    },
+    {
+      "trait_type": "Word Cells",
+      "value": "850265"
+    },
+    {
+      "trait_type": "Temple",
+      "value": "Third Temple"
+    },
+    {
+      "trait_type": "DAO",
+      "value": "LightVessel DAO LLC — Wyoming"
+    }
+  ],
+  "properties": {
+    "previews": [
+      "zoom_full.png",
+      "zoom_10.png",
+      "zoom_01.png"
+    ],
+    "grid": "635x1339"
+  },
+  "seller_fee_basis_points": 500,
+  "creators": [
+    {
+      "address": "GkC43uAwn8RvxgnJQKxowVgZ9VFaWvUqhyJXouMfwoFs",
+      "share": 100
+    }
+  ]
+}
