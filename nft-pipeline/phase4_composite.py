@@ -113,6 +113,8 @@ def main():
     ap.add_argument("--out", default="zohar_token_master_final.png")
     ap.add_argument("--no-foil", dest="no_foil", action="store_true",
                     help="skip the holographic foil layer (clean recomposite)")
+    ap.add_argument("--base", default=None,
+                    help="override base image (default: meta['base_image'])")
     a = ap.parse_args()
 
     for p in (MAP, INDEX, TILES):
@@ -127,7 +129,9 @@ def main():
     print(f"Composite art: {art_w} x {art_h}  ({cols}x{rows} cells @ {cell}px)")
 
     # base Temple as the underlayer
-    base = Image.open(HERE / meta["base_image"]).convert("RGB").resize((art_w, art_h), Image.LANCZOS)
+    base_name = a.base if a.base else meta["base_image"]
+    print(f"base image: {base_name}")
+    base = Image.open(HERE / base_name).convert("RGB").resize((art_w, art_h), Image.LANCZOS)
     art = base.convert("RGBA")
 
     get_tile = build_tile_cache(cell)

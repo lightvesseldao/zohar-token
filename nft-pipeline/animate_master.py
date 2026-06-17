@@ -12,14 +12,12 @@ band sweeps past. Seamless: state at phase 1.0 == phase 0.0.
 Pure local: Pillow + numpy + imageio (bundled ffmpeg). No API.
 """
 import os
+import argparse
 import numpy as np
 from PIL import Image
 import imageio.v2 as imageio
 
 PIPE = r'C:\Users\Usuario\LIghtVessel\Zohar Edition\temple_pipeline'
-CLEAN = os.path.join(PIPE, 'zohar_token_master_clean.png')
-MP4 = os.path.join(PIPE, 'zohar_token_master_animated.mp4')
-GIF = os.path.join(PIPE, 'zohar_token_master_animated.gif')
 
 # --- shimmer parameters ---
 BAND_SIGMA = 0.07                       # diagonal band width (s-space)
@@ -121,10 +119,18 @@ def make(src, W, H, total, fps, out_path, kind):
 
 
 def main():
-    if not os.path.exists(CLEAN):
-        raise SystemExit(f"missing {CLEAN} — run the clean recomposite first")
-    make(CLEAN, 1080, 1920, 90, 30, MP4, 'mp4')
-    make(CLEAN, 540, 960, 45, 15, GIF, 'gif')
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--src', default='zohar_token_master_clean.png')
+    ap.add_argument('--mp4', default='zohar_token_master_animated.mp4')
+    ap.add_argument('--gif', default='zohar_token_master_animated.gif')
+    a = ap.parse_args()
+    src = os.path.join(PIPE, a.src)
+    mp4 = os.path.join(PIPE, a.mp4)
+    gif = os.path.join(PIPE, a.gif)
+    if not os.path.exists(src):
+        raise SystemExit(f"missing {src} — run the clean recomposite first")
+    make(src, 1080, 1920, 90, 30, mp4, 'mp4')
+    make(src, 540, 960, 45, 15, gif, 'gif')
     print("ANIMATION COMPLETE", flush=True)
 
 
